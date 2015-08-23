@@ -75,6 +75,10 @@ public class ParseUtils {
                     rowModel.setStyle(attributes.optString("style"));
                 }
 
+                if(rowModel == null){
+                    return;
+                }
+
                 hubRow.addRow(rowModel);
             }
 
