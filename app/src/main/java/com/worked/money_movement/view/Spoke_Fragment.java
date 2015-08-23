@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.NumberPicker;
 
 import com.worked.money_movement.R;
-import com.worked.money_movement.utils.shared.Spokes;
 import com.worked.money_movement.view_model_controller.HubRow;
 
 public class Spoke_Fragment extends Fragment {
@@ -84,7 +83,7 @@ public class Spoke_Fragment extends Fragment {
 
                 HubRow.getCurrent().setSubtitle(String.valueOf(currentValue));
 
-                HubRow.unlockNext(Spokes.DISCLAIMER);
+                HubRow.unlockNext();
 
                 getActivity().finish();
             }
@@ -97,7 +96,6 @@ public class Spoke_Fragment extends Fragment {
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // resets hub from this index on... >
                 HubRow.resetHub(HubRow.getCurrent().getIndex());
 
                 getActivity().finish();

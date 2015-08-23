@@ -6,6 +6,7 @@ import com.worked.money_movement.utils.shared.Spokes;
 import com.worked.money_movement.view_model.RowModel;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -43,11 +44,16 @@ public class HubRow {
 
     /**
      * Add model data
+     * Sets default current row : first index
      *
      * @param rowData row data
      */
     public static void addRow(@NonNull RowModel rowData) {
         data.add(rowData);
+
+        if (data.size() == 1) {
+            setCurrent(rowData);
+        }
     }
 
     //-- Helpers
@@ -86,19 +92,16 @@ public class HubRow {
 
     /**
      * Unlock row
+     * Contains business logic check as well
      *
      * @param row        row
      * @param exceptions ignore certain spokes
      */
     public static void unlock(@NonNull RowModel row, @NonNull Spokes... exceptions) {
-        // ignore
-        for (Spokes spoke : exceptions) {
-            if (row.getId().equals(spoke.name())) {
-                return;
-            }
+        if (hasBusinessLogic(row, exceptions)) {
+            return;
         }
 
-        // apply
         if (row.isLocked() || !row.isEnabled() || !row.isVisible()) {
             row.setLocked(false);
 
@@ -258,5 +261,29 @@ public class HubRow {
      */
     public static RowModel getCurrent() {
         return current;
+    }
+
+    /**
+     * Helper : hub business logic
+     * Add business logic here
+     *
+     * @param row        rowModel
+     * @param exceptions ignore list
+     * @return true if business logic found, false otherwise
+     */
+    private static boolean hasBusinessLogic(RowModel row, Spokes... exceptions) {
+        ArrayList<Spokes> exceptionsList = new ArrayList(Arrays.asList(exceptions));
+
+        // add exceptions here...
+        exceptionsList.add(Spokes.DISCLAIMER);
+        exceptionsList.add(Spokes.LOCKED);
+
+        for (Spokes spoke : exceptionsList) {
+            if (row.getId().equals(spoke.name())) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

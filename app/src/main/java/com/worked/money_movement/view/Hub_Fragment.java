@@ -19,8 +19,6 @@ public class Hub_Fragment extends Fragment {
 
     public static final String TAG = Hub_Fragment.class.getSimpleName();
 
-    private LinearLayout root;
-
     /**
      * Factory Method : create a new instance
      *
@@ -46,7 +44,11 @@ public class Hub_Fragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        root = (LinearLayout) view.findViewById(R.id.hub_container);
+        LinearLayout root = (LinearLayout) view.findViewById(R.id.hub_container);
+
+        if(root == null){
+            return;
+        }
 
         setupMoneyMovement(root);
     }
@@ -68,7 +70,7 @@ public class Hub_Fragment extends Fragment {
                 public void onClick(View v) {
                     Intent intent = new Intent(getActivity(), Spoke_Activity.class);
 
-                    HubRow.setCurrent(row); // very important to set this...
+                    HubRow.setCurrent(row);
 
                     startActivity(intent);
                 }
