@@ -72,18 +72,7 @@ public class ParseUtils {
 
                     rowModel.setVisible(attributes.optBoolean("visible", true), true);
 
-                    rowModel.setRow_style(attributes.optString("style"));
-                }
-
-                // row styles
-                JSONObject styles = row.optJSONObject("styles");
-
-                if (styles != null) {
-                    rowModel.setTitle_style(styles.optString("title"));
-
-                    rowModel.setSubtitle_style(styles.optString("subtitle"));
-
-                    rowModel.setHint_style(styles.optString("hint"));
+                    rowModel.setStyle(attributes.optString("style"));
                 }
 
                 hubRow.addRow(rowModel);
@@ -95,7 +84,7 @@ public class ParseUtils {
     }
 
     /**
-     * Helper : Get drawable resource by string name
+     * Helper : Get drawable resource by name
      *
      * @param name resource
      * @return drawable

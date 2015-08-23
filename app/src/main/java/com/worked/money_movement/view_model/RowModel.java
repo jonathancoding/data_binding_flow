@@ -18,35 +18,16 @@ public class RowModel extends BaseObservable {
     private int index;
 
     // row attributes
-    private boolean locked;
-    private boolean enabled;
-    private boolean optional;
-    private boolean visible;
-    private String row_style;
+    private boolean locked, enabled, optional, visible;
+    private String style;
 
     // views
-    private String title;
-    private String subtitle;
-    private String hint;
-    private Drawable icon;
-    private Drawable icon_disabled;
-
-    // styles
-    private String title_style;
-    private String subtitle_style;
-    private String hint_style;
+    private String title, subtitle, hint;
+    private Drawable icon, icon_disabled;
 
     // original values - unbound data
-    private String subtitle_orig;
-    private boolean visible_orig;
-    private boolean enabled_orig;
-    private boolean locked_orig;
-    private boolean optional_orig;
-    private String title_orig;
-
-    // constructor
-    public RowModel() {
-    }
+    private String subtitle_orig, title_orig;
+    private boolean visible_orig, enabled_orig, locked_orig, optional_orig;
 
     //-- views
 
@@ -115,42 +96,15 @@ public class RowModel extends BaseObservable {
         notifyChange();
     }
 
-    // -- styles
+    // -- row styles
 
     @Bindable
-    public String getTitle_style() {
-        return title_style;
+    public String getStyle() {
+        return style;
     }
 
-    public void setTitle_style(String title_style) {
-        this.title_style = title_style;
-    }
-
-    @Bindable
-    public String getSubtitle_style() {
-        return subtitle_style;
-    }
-
-    public void setSubtitle_style(String subtitle_style) {
-        this.subtitle_style = subtitle_style;
-    }
-
-    @Bindable
-    public String getHint_style() {
-        return hint_style;
-    }
-
-    public void setHint_style(String hint_style) {
-        this.hint_style = hint_style;
-    }
-
-    @Bindable
-    public String getRow_style() {
-        return row_style;
-    }
-
-    public void setRow_style(String row_style) {
-        this.row_style = row_style;
+    public void setStyle(String style) {
+        this.style = style;
     }
 
     // -- attributes

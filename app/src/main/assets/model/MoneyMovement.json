@@ -10,10 +10,6 @@
             "title": "Payment To: ",
             "subtitle": "Pay this Account"
           },
-          "styles": {
-            "title": "Title",
-            "subtitle": "SubTitle"
-          },
           "attributes": {
             "enabled": true,
             "locked": false
@@ -30,7 +26,6 @@
             "icon": "icon_blue",
             "icon_disabled": "icon_disabled"
           },
-          "styles": {},
           "attributes": {
             "enabled": true,
             "locked": false
@@ -44,11 +39,6 @@
           "views": {
             "title": "Payment Date: ",
             "subtitle": "Locked by default..."
-          },
-          "styles": {
-            "title": "title_style",
-            "subtitle": "subtitle_style",
-            "optional": "optional_style"
           },
           "attributes": {}
         }
@@ -64,11 +54,6 @@
             "icon": "icon_red",
             "icon_disabled": "icon_disabled"
           },
-          "styles": {
-            "title": "title_alt_style",
-            "subtitle": "subtitle_alt_style",
-            "hint": "optional_alt_style"
-          },
           "attributes": {}
         }
       },
@@ -80,7 +65,6 @@
             "title": "Optional: ",
             "subtitle": "Select to display the hidden row..."
           },
-          "styles": {},
           "attributes": {
             "style": "alt_row_style",
             "enabled": true,
@@ -99,7 +83,6 @@
             "icon": "icon_red",
             "icon_disabled": "icon_disabled"
           },
-          "styles": {},
           "attributes": {
             "visible": false
           }
@@ -112,7 +95,6 @@
           "views": {
             "title": "Disclaimer text goes here... Disclaimer text goes here... Disclaimer text goes here... Disclaimer text goes here... Disclaimer text goes here... "
           },
-          "styles": {},
           "attributes": {
             "enabled": true,
             "locked": true
