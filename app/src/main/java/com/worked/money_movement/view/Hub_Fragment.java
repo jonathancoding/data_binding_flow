@@ -68,13 +68,13 @@ public class Hub_Fragment extends Fragment {
             binding.rowContainer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getActivity(), Spoke_Activity.class);
-
                     if(row == null){
                         return;
                     }
 
                     HubRow.setCurrent(row);
+
+                    Intent intent = new Intent(getActivity(), Spoke_Activity.class);
 
                     startActivity(intent);
                 }
