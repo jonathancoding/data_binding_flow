@@ -217,8 +217,6 @@ public class HubRow {
 
     /**
      * Set next row
-     *
-     * @param current row
      */
     private static void setNext() {
         int index = current.getIndex() + 1;
@@ -228,8 +226,6 @@ public class HubRow {
 
     /**
      * Set previous row
-     *
-     * @param current row
      */
     private static void setPrevious() {
         int index = current.getIndex() - 1;
