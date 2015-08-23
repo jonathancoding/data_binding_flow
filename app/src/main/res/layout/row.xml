@@ -21,6 +21,7 @@
         android:id="@+id/row_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/ripple"
         android:clickable="@{row.isLocked() ? false : true}"
         android:orientation="horizontal"
         android:padding="16dp"

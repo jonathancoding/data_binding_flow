@@ -9,7 +9,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".view.Hub_Activity"
-            android:label="@string/app_name">
+            android:label="@string/hub">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,7 +18,7 @@
         </activity>
         <activity
             android:name=".view.Spoke_Activity"
-            android:label="@string/app_name" />
+            android:label="@string/spoke" />
     </application>
 
 </manifest>
