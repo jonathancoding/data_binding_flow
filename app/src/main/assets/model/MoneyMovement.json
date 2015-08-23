@@ -1,0 +1,124 @@
+{
+  "money_movement": {
+    "title": "Sample Money Movement",
+    "rows": [
+      {
+        "row": {
+          "id": "TO",
+          "index": 0,
+          "views": {
+            "title": "Payment To: ",
+            "subtitle": "Pay this Account"
+          },
+          "styles": {
+            "title": "Title",
+            "subtitle": "SubTitle"
+          },
+          "attributes": {
+            "enabled": true,
+            "locked": false
+          }
+        }
+      },
+      {
+        "row": {
+          "id": "FROM",
+          "index": 1,
+          "views": {
+            "title": "Payment From: ",
+            "subtitle": "Choose an Account",
+            "icon": "icon_blue",
+            "icon_disabled": "icon_disabled"
+          },
+          "styles": {},
+          "attributes": {
+            "enabled": true,
+            "locked": false
+          }
+        }
+      },
+      {
+        "row": {
+          "id": "DATE",
+          "index": 2,
+          "views": {
+            "title": "Payment Date: ",
+            "subtitle": "Locked by default..."
+          },
+          "styles": {
+            "title": "title_style",
+            "subtitle": "subtitle_style",
+            "optional": "optional_style"
+          },
+          "attributes": {}
+        }
+      },
+      {
+        "row": {
+          "id": "AMOUNT",
+          "index": 3,
+          "views": {
+            "title": "Payment Amount: ",
+            "subtitle": "Choose an Amount",
+            "hint": "US Dollar",
+            "icon": "icon_red",
+            "icon_disabled": "icon_disabled"
+          },
+          "styles": {
+            "title": "title_alt_style",
+            "subtitle": "subtitle_alt_style",
+            "hint": "optional_alt_style"
+          },
+          "attributes": {}
+        }
+      },
+      {
+        "row": {
+          "id": "OPTIONAL",
+          "index": 4,
+          "views": {
+            "title": "Optional: ",
+            "subtitle": "Select to display the hidden row..."
+          },
+          "styles": {},
+          "attributes": {
+            "style": "alt_row_style",
+            "enabled": true,
+            "locked": false,
+            "optional": true
+          }
+        }
+      },
+      {
+        "row": {
+          "id": "HIDDEN",
+          "index": 5,
+          "views": {
+            "title": "Hidden: ",
+            "subtitle": "Not shown initially",
+            "icon": "icon_red",
+            "icon_disabled": "icon_disabled"
+          },
+          "styles": {},
+          "attributes": {
+            "visible": false
+          }
+        }
+      },
+      {
+        "row": {
+          "id": "DISCLAIMER",
+          "index": 6,
+          "views": {
+            "title": "Disclaimer text goes here... Disclaimer text goes here... Disclaimer text goes here... Disclaimer text goes here... Disclaimer text goes here... "
+          },
+          "styles": {},
+          "attributes": {
+            "enabled": true,
+            "locked": true
+          }
+        }
+      }
+    ]
+  }
+}

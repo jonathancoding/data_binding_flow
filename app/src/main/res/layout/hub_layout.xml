@@ -1,0 +1,16 @@
+<!-- HUB -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollview_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:id="@+id/hub_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/divider"
+        android:showDividers="middle"
+        android:orientation="vertical" />
+</ScrollView>
