@@ -202,6 +202,42 @@ public class HubRow {
     //-- Navigation
 
     /**
+     * Set next row
+     */
+    private static void setNext() {
+        int index = current.getIndex() + 1;
+
+        next = index < data.size() ? data.get(index) : current;
+    }
+
+    /**
+     * Get next row
+     *
+     * @return next row
+     */
+    public static RowModel getNext() {
+        return next;
+    }
+
+    /**
+     * Set previous row
+     */
+    private static void setPrevious() {
+        int index = current.getIndex() - 1;
+
+        previous = index > 0 ? data.get(index) : current;
+    }
+
+    /**
+     * Get previous row
+     *
+     * @return previous row
+     */
+    public static RowModel getPrevious() {
+        return previous;
+    }
+
+    /**
      * Set current row
      * Also sets next & previous if possible
      *
@@ -216,47 +252,11 @@ public class HubRow {
     }
 
     /**
-     * Set next row
-     */
-    private static void setNext() {
-        int index = current.getIndex() + 1;
-
-        next = index < data.size() ? data.get(index) : current;
-    }
-
-    /**
-     * Set previous row
-     */
-    private static void setPrevious() {
-        int index = current.getIndex() - 1;
-
-        previous = index > 0 ? data.get(index) : current;
-    }
-
-    /**
      * Get current row
      *
      * @return current row
      */
     public static RowModel getCurrent() {
         return current;
-    }
-
-    /**
-     * Get next row
-     *
-     * @return next row
-     */
-    public static RowModel getNext() {
-        return next;
-    }
-
-    /**
-     * Get previous row
-     *
-     * @return previous row
-     */
-    public static RowModel getPrevious() {
-        return previous;
     }
 }

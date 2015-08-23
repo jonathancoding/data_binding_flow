@@ -1,6 +1,5 @@
 package com.worked.money_movement.view_model;
 
-import android.content.Context;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.graphics.drawable.Drawable;
