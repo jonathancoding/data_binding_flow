@@ -162,7 +162,11 @@ public class HubRow {
      *
      * @param row row
      */
-    public static void show(@NonNull RowModel row) {
+    public static void show(@NonNull RowModel row, @NonNull Spokes... exceptions) {
+        if (hasBusinessLogic(row, exceptions)) {
+            return;
+        }
+
         if (!row.isVisible()) {
             row.setVisible(true);
         }
@@ -171,34 +175,34 @@ public class HubRow {
     /**
      * Show current hidden row
      */
-    public static void showCurrent() {
+    public static void showCurrent(@NonNull Spokes... exceptions) {
         if (current == null) {
             return;
         }
 
-        show(current);
+        show(current, exceptions);
     }
 
     /**
      * Show next hidden row
      */
-    public static void showNext() {
+    public static void showNext(@NonNull Spokes... exceptions) {
         if (next == null) {
             return;
         }
 
-        show(next);
+        show(next, exceptions);
     }
 
     /**
      * Show previous hidden row
      */
-    public static void showPrevious() {
+    public static void showPrevious(@NonNull Spokes... exceptions) {
         if (previous == null) {
             return;
         }
 
-        show(previous);
+        show(previous, exceptions);
     }
 
     /**
@@ -206,7 +210,11 @@ public class HubRow {
      *
      * @param row row
      */
-    public static void enable(@NonNull RowModel row) {
+    public static void enable(@NonNull RowModel row, @NonNull Spokes... exceptions) {
+        if (hasBusinessLogic(row, exceptions)) {
+            return;
+        }
+
         if (!row.isEnabled()) {
             row.setEnabled(true);
         }
@@ -215,34 +223,34 @@ public class HubRow {
     /**
      * Enable current row
      */
-    public static void enableCurrent() {
+    public static void enableCurrent(@NonNull Spokes... exceptions) {
         if (current == null) {
             return;
         }
 
-        enable(current);
+        enable(current, exceptions);
     }
 
     /**
      * Enable next row
      */
-    public static void enableNext() {
+    public static void enableNext(@NonNull Spokes... exceptions) {
         if (next == null) {
             return;
         }
 
-        enable(next);
+        enable(next, exceptions);
     }
 
     /**
      * Enable previous row
      */
-    public static void enablePrevious() {
+    public static void enablePrevious(@NonNull Spokes... exceptions) {
         if (previous == null) {
             return;
         }
 
-        enable(previous);
+        enable(previous, exceptions);
     }
 
     //-- Navigation
