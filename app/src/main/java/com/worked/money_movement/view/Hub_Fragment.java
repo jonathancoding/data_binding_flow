@@ -70,6 +70,10 @@ public class Hub_Fragment extends Fragment {
                 public void onClick(View v) {
                     Intent intent = new Intent(getActivity(), Spoke_Activity.class);
 
+                    if(row == null){
+                        return;
+                    }
+
                     HubRow.setCurrent(row);
 
                     startActivity(intent);

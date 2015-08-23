@@ -6,7 +6,6 @@ import com.worked.money_movement.utils.shared.Spokes;
 import com.worked.money_movement.view_model.RowModel;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -44,7 +43,7 @@ public class HubRow {
 
     /**
      * Add model data
-     * Sets default current row : first index
+     * Default : set current to first row
      *
      * @param rowData row data
      */
@@ -62,6 +61,10 @@ public class HubRow {
      * Reset hub
      */
     public static void resetHub() {
+        if (data == null) {
+            return;
+        }
+
         for (RowModel row : data) {
             row.resetSubtitle();
 
@@ -79,6 +82,10 @@ public class HubRow {
      * @param spokeIndex index
      */
     public static void resetHub(@NonNull int spokeIndex) {
+        if (data == null) {
+            return;
+        }
+
         for (int i = spokeIndex; i < data.size(); i++) {
             data.get(i).resetSubtitle();
 
@@ -92,13 +99,13 @@ public class HubRow {
 
     /**
      * Unlock row
-     * Contains business logic check as well
+     * Sets unlock business logic
      *
      * @param row        row
      * @param exceptions ignore certain spokes
      */
     public static void unlock(@NonNull RowModel row, @NonNull Spokes... exceptions) {
-        if (hasBusinessLogic(row, exceptions)) {
+        if (hasBusinessLogic(row, Spokes.DISCLAIMER, Spokes.LOCKED)) {
             return;
         }
 
@@ -117,6 +124,10 @@ public class HubRow {
      * @param exceptions ignore certain spokes
      */
     public static void unlockCurrent(@NonNull Spokes... exceptions) {
+        if (current == null) {
+            return;
+        }
+
         unlock(current, exceptions);
     }
 
@@ -126,6 +137,10 @@ public class HubRow {
      * @param exceptions ignore certain spokes
      */
     public static void unlockNext(@NonNull Spokes... exceptions) {
+        if (next == null) {
+            return;
+        }
+
         unlock(next, exceptions);
     }
 
@@ -135,6 +150,10 @@ public class HubRow {
      * @param exceptions ignore certain rows
      */
     public static void unlockPrevious(@NonNull Spokes... exceptions) {
+        if (previous == null) {
+            return;
+        }
+
         unlock(previous, exceptions);
     }
 
@@ -153,6 +172,10 @@ public class HubRow {
      * Show current hidden row
      */
     public static void showCurrent() {
+        if (current == null) {
+            return;
+        }
+
         show(current);
     }
 
@@ -160,6 +183,10 @@ public class HubRow {
      * Show next hidden row
      */
     public static void showNext() {
+        if (next == null) {
+            return;
+        }
+
         show(next);
     }
 
@@ -167,6 +194,10 @@ public class HubRow {
      * Show previous hidden row
      */
     public static void showPrevious() {
+        if (previous == null) {
+            return;
+        }
+
         show(previous);
     }
 
@@ -185,6 +216,10 @@ public class HubRow {
      * Enable current row
      */
     public static void enableCurrent() {
+        if (current == null) {
+            return;
+        }
+
         enable(current);
     }
 
@@ -192,6 +227,10 @@ public class HubRow {
      * Enable next row
      */
     public static void enableNext() {
+        if (next == null) {
+            return;
+        }
+
         enable(next);
     }
 
@@ -199,6 +238,10 @@ public class HubRow {
      * Enable previous row
      */
     public static void enablePrevious() {
+        if (previous == null) {
+            return;
+        }
+
         enable(previous);
     }
 
@@ -208,6 +251,10 @@ public class HubRow {
      * Set next row
      */
     private static void setNext() {
+        if (current == null) {
+            return;
+        }
+
         int index = current.getIndex() + 1;
 
         next = index < data.size() ? data.get(index) : current;
@@ -226,6 +273,10 @@ public class HubRow {
      * Set previous row
      */
     private static void setPrevious() {
+        if (current == null) {
+            return;
+        }
+
         int index = current.getIndex() - 1;
 
         previous = index > 0 ? data.get(index) : current;
@@ -272,13 +323,7 @@ public class HubRow {
      * @return true if business logic found, false otherwise
      */
     private static boolean hasBusinessLogic(RowModel row, Spokes... exceptions) {
-        ArrayList<Spokes> exceptionsList = new ArrayList(Arrays.asList(exceptions));
-
-        // add exceptions here...
-        exceptionsList.add(Spokes.DISCLAIMER);
-        exceptionsList.add(Spokes.LOCKED);
-
-        for (Spokes spoke : exceptionsList) {
+        for (Spokes spoke : exceptions) {
             if (row.getId().equals(spoke.name())) {
                 return true;
             }

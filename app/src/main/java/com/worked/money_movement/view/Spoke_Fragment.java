@@ -15,8 +15,6 @@ public class Spoke_Fragment extends Fragment {
 
     public static final String TAG = Spoke_Fragment.class.getSimpleName();
 
-    public static final String CURRENT_VALUE = "currentValue";
-
     private int currentValue = 0;
 
     /**
