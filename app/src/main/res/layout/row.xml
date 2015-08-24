@@ -31,7 +31,8 @@
             android:id="@+id/divider"
             android:layout_width="wrap_content"
             android:layout_height="1dp"
-            android:background="@{row.getId().equals(Spokes.DISCLAIMER.name()) ? @drawable/divider_full : @drawable/divider_partial}" />
+            android:background="@{row.getId().equals(Spokes.DISCLAIMER.name()) ? @drawable/divider_full : @drawable/divider_partial}"
+            android:visibility="@{row.getIndex() == 0 ? View.GONE : View.VISIBLE}" />
 
         <!-- container -->
         <LinearLayout
