@@ -55,6 +55,13 @@ public class HubRow {
         }
     }
 
+    /**
+     * Clear data
+     */
+    public static void clearRows() {
+        data.clear();
+    }
+
     //-- Helpers
 
     /**

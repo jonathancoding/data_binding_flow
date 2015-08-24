@@ -8,6 +8,7 @@ import android.os.Bundle;
 import com.worked.money_movement.R;
 import com.worked.money_movement.utils.ParseUtils;
 import com.worked.money_movement.utils.shared.Constants;
+import com.worked.money_movement.view_model_controller.HubRow;
 
 public class Hub_Activity extends Activity {
 
@@ -31,6 +32,8 @@ public class Hub_Activity extends Activity {
      * Set Up Hub Data
      */
     private void setupData() {
+        HubRow.clearRows(); // proactively clear the rows on refresh/rotation
+
         ParseUtils.parseJsonData(this.getBaseContext(), Constants.MONEY_MOVEMENT_JSON);
     }
 
