@@ -55,9 +55,9 @@ public class ParseUtils {
 
                     rowModel.setHint(views.optString("hint"));
 
-                    rowModel.setIcon(findDrawableByName(views.optString("icon"), context));
+                    rowModel.setIcon(findDrawableByName(context, views.optString("icon")));
 
-                    rowModel.setIconDisabled(findDrawableByName(views.optString("icon_disabled"), context));
+                    rowModel.setIconDisabled(findDrawableByName(context, views.optString("icon_disabled")));
                 }
 
                 // row attributes
@@ -75,7 +75,7 @@ public class ParseUtils {
                     rowModel.setStyle(attributes.optString("style"));
                 }
 
-                if(rowModel == null){
+                if (rowModel == null) {
                     return;
                 }
 
@@ -93,7 +93,7 @@ public class ParseUtils {
      * @param name resource
      * @return drawable
      */
-    private static Drawable findDrawableByName(String name, Context context) {
+    private static Drawable findDrawableByName(Context context, String name) {
         try {
             Resources resources = context.getResources();
 
