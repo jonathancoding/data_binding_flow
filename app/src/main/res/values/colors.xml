@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- enabled -->
-    <color name="title">#083272</color>
-    <color name="subtitle">#276699</color>
-    <color name="hint">#87aeb4</color>
+    <color name="title">#FF083272</color>
+    <color name="subtitle">#FF276699</color>
+    <color name="hint">#FF87aeb4</color>
     <!-- disabled -->
-    <color name="title.disabled">#999999</color>
-    <color name="subtitle.disabled">#cccccc</color>
-    <color name="hint.disabled">#cccccc</color>
+    <color name="title.disabled">#FF999999</color>
+    <color name="subtitle.disabled">#FFCCCCCC</color>
+    <color name="hint.disabled">#FFCCCCCC</color>
+    <!-- divider -->
+    <color name="divider_color">#FFCCCCCC</color>
 </resources>

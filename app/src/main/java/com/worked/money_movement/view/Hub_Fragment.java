@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.content.res.ResourcesCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +47,7 @@ public class Hub_Fragment extends Fragment {
 
         LinearLayout root = (LinearLayout) view.findViewById(R.id.hub_container);
 
-        if(root == null){
+        if (root == null) {
             return;
         }
 
@@ -68,7 +69,7 @@ public class Hub_Fragment extends Fragment {
             binding.rowContainer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(row == null){
+                    if (row == null) {
                         return;
                     }
 

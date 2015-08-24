@@ -16,58 +16,72 @@
             type="com.worked.money_movement.view_model.RowModel" />
     </data>
 
-    <!-- ROW container -->
+    <!-- ROW -->
     <LinearLayout
         android:id="@+id/row_container"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/ripple"
         android:clickable="@{row.isLocked() ? false : true}"
-        android:orientation="horizontal"
-        android:padding="16dp"
+        android:orientation="vertical"
         android:visibility="@{row.isVisible() ? View.VISIBLE : View.GONE}">
 
-        <!-- icon -->
-        <ImageView
-            android:id="@+id/icon"
+        <!-- divider -->
+        <View
+            android:id="@+id/divider"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:paddingRight="10dp"
-            android:src="@{row.isEnabled() ? (row.getIcon() ?? @drawable/icon_enabled) : (row.getIconDisabled() ?? @drawable/icon_disabled)}"
-            android:visibility="@{row.getId().equals(Spokes.DISCLAIMER.name()) ? View.GONE : View.VISIBLE}" />
+            android:layout_height="1dp"
+            android:background="@{row.getId().equals(Spokes.DISCLAIMER.name()) ? @drawable/divider_full : @drawable/divider_partial}" />
 
-        <!-- labels -->
+        <!-- container -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:padding="16dp">
 
-            <!-- title -->
-            <com.worked.money_movement.view.MyTextView
-                style="@style/Title"
+            <!-- icon -->
+            <ImageView
+                android:id="@+id/icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:enabled="@{row.isEnabled()}"
-                android:text="@{row.getTitle()}" />
+                android:layout_gravity="center"
+                android:paddingRight="10dp"
+                android:src="@{row.isEnabled() ? (row.getIcon() ?? @drawable/icon_enabled) : (row.getIconDisabled() ?? @drawable/icon_disabled)}"
+                android:visibility="@{row.getId().equals(Spokes.DISCLAIMER.name()) ? View.GONE : View.VISIBLE}" />
 
-            <!-- subtitle -->
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- labels -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{row.getSubtitle()}"
-                android:textColor="@{row.isEnabled() ? @color/subtitle : @color/subtitle_disabled}"
-                android:visibility="@{TextUtils.isEmpty(row.getSubtitle()) ? View.GONE : View.VISIBLE}" />
+                android:orientation="vertical">
 
-            <!-- hint -->
-            <TextView
-                style="@style/Hint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{row.getHint()}"
-                android:textColor="@{row.isEnabled() ? @color/hint : @color/hint_disabled}"
-                android:visibility="@{TextUtils.isEmpty(row.getHint()) ? View.GONE : View.VISIBLE}" />
+                <!-- title -->
+                <com.worked.money_movement.view.MyTextView
+                    style="@style/Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="@{row.isEnabled()}"
+                    android:text="@{row.getTitle()}" />
+
+                <!-- subtitle -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{row.getSubtitle()}"
+                    android:textColor="@{row.isEnabled() ? @color/subtitle : @color/subtitle_disabled}"
+                    android:visibility="@{TextUtils.isEmpty(row.getSubtitle()) ? View.GONE : View.VISIBLE}" />
+
+                <!-- hint -->
+                <TextView
+                    style="@style/Hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{row.getHint()}"
+                    android:textColor="@{row.isEnabled() ? @color/hint : @color/hint_disabled}"
+                    android:visibility="@{TextUtils.isEmpty(row.getHint()) ? View.GONE : View.VISIBLE}" />
+            </LinearLayout>
+
         </LinearLayout>
-
     </LinearLayout>
 </layout>
