@@ -32,8 +32,6 @@ public class Hub_Activity extends Activity {
      * Set Up Hub Data
      */
     private void setupData() {
-        HubRow.clearRows(); // proactively clear the rows on refresh/rotation
-
         ParseUtils.parseJsonData(this.getBaseContext(), Constants.MONEY_MOVEMENT_JSON);
     }
 
@@ -52,5 +50,13 @@ public class Hub_Activity extends Activity {
 
             ft.commit();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        // clean up
+        HubRow.clearRows();
     }
 }
